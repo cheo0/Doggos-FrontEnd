@@ -1,80 +1,130 @@
-.container {
-  column-count: 4;
+.tarjeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  margin: 30px;
 }
 
 .dog {
   display: flex;
   flex-direction: column;
-  border: 1px solid #0009;
-  border-radius: 10px;
-  margin: 0 5px 5px 0;
-  box-shadow: inset -5px -5px 5px 0 black;
-  padding: 10px;
+  text-align: center;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, .5);
+  margin: 16px;
+  border-radius: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5); 
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
 }
+
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-height: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(5px);
+}
+
+/*Esto hace el efecto de colores*/
+.container::before,
+.container::after {
+  content: '';
+  border-radius: 15px;
+  position: absolute;
+  inset: 0;
+  transition: 0.5s;
+}
+
+.container:nth-child(1)::before,
+.container:nth-child(1)::after {
+  background: linear-gradient(45deg, #00ccff, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), #d400d4);
+}
+
+.container:hover::before {
+  inset: -3px;
+}
+
+.container:hover::after {
+  inset: -9px;
+  filter: blur(10px);
+}
+/*Aquí termina*/
 
 .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form .contactForm {
   position: relative;
   width: 100%;
-  max-width: 44em;
-  margin-top: 1.25em;
-  padding: 2em;
+  height: 100%;
+  padding: 40px;
+  z-index: 1;
 }
 
-.form .contactForm .row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.5em;
-  margin-top: 1.5em;
-  width: 100%;
-}
-
-.form .contactForm .row2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5em;
-  width: 100%;
-}
-
-.form .contactForm .row input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid black;
-  outline: none;
-  background-color: white;
-  color: black;
-  font-size: 1em;
-  font-weight: 400;
-  letter-spacing: 2px;
-}
-
-.form .contactForm .row2 input[type="submit"]:hover {
-  cursor: pointer;
-}
-
-.btn {
+.form h2 {
   position: relative;
-  display: inline-block;
-  padding: 8px 20px;
-  margin-right: 100px;
-  border: 2px solid black;
-  border-radius: 10px;
-  color: black;
-  text-decoration: none;
-  font-size: 1.25em;
+  text-align: center;
+  font-size: 24px;
   font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: 0.25s;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
 }
 
-.btn:hover {
-  color: white;
-  background-color: black;
+.form h2::before {
+  content: '';
+  position: absolute;
+  left: 115px;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: #fff9;
+}
+
+.form .inputBox {
+  width: 100%;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.form .inputBox input {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, .5);
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #fff9;
+}
+
+.form .inputBox input::placeholder {
+  color: #fffc;
+}
+
+.form .inputBox input[type="submit"] {
+  background: white;
+  color: #666;
+  max-width: 100px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  cursor: pointer;
 }

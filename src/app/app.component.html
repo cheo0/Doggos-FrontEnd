@@ -1,25 +1,27 @@
-<div class="container">
-  <div class="dog" *ngFor="let dog of dogs">
-    <span>{{ dog.name }}</span>
-    <span>{{ dog.age }}</span>
-  </div>
+<div class="tarjeta">
+    <div class="dog" *ngFor="let dog of dogs">
+      <h2>{{ dog.name }}</h2>
+      <h3>{{ dog.age }}</h3>
+    </div>
 </div>
 
-<section class="form">
-  <div class="title">
-    <h2>Nuevo perrimto</h2>
+<div class="box">
+  <div class="container">
+    <div class="form">
+      <h2>Nuevo perrimto</h2>
+      <form action="">
+        <div class="inputBox">
+          <input type="text" placeholder="Nombre del doggo">
+        </div>
+        <div class="inputBox">
+          <input type="number" placeholder="Edad del doggo" />
+        </div>
+        <div class="inputBox">
+          <input type="submit" value="Crear" />
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="contactForm">
-    <div class="row">
-      <input type="text" placeholder="Nombre del doggo" />
-    </div>
-    <div class="row">
-      <input type="number" placeholder="Edad del doggo" />
-    </div>
-    <div class="row2">
-      <input type="submit" value="Subir" class="btn" />
-    </div>
-  </div>
-</section>
+</div>
 
 <router-outlet></router-outlet>
